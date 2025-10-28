@@ -3,7 +3,7 @@ CC = i686-elf-gcc
 LD = i686-elf-ld
 
 # Flags
-CFLAGS  = -ffreestanding -nostdlib -fno-builtin -O2 -Wall -Wextra
+CFLAGS  = -ffreestanding -std=c99 -nostdlib -fno-builtin -O2 -Wall -Wextra
 LDFLAGS = -T linker.ld
 
 # QEMU
@@ -11,7 +11,7 @@ QEMU = qemu-system-i386
 QEMUFLAGS = -serial stdio
 
 # Source files
-OBJS = boot.o kernel.o 
+OBJS = boot.o kernel.o utils.o
 
 # Default target
 all: kernel.elf

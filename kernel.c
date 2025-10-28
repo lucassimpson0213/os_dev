@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "kernel_h.h"
 #include "utils.h"
+#include "multiboot.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -144,10 +145,18 @@ void terminal_writestring(const char *data)
 	terminal_write(data, strlen(data));
 }
 
-void kernel_main(void)
+void kernel_main(uint32_t magic, uint32_t mbi_phys)
 {
+
+	multiboot_info_t *mbi = (multiboot_info_t *)(uintptr_t)mbi_phys;
+
+
 	/* Initialize terminal interface */
-	size_t result = init_serial();
+
+
+	size_t result = serial_init();
+
+	
 	terminal_initialize();
 
 	/* Newline support is left as an exercise. */
@@ -165,4 +174,7 @@ void kernel_main(void)
 	}
 
 	write_serial('h');
+
+	printk("%d", 123);
+	printk("%s","hello");
 }
