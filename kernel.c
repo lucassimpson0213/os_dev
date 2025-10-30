@@ -163,22 +163,12 @@ void kernel_main(uint32_t magic, uint32_t mbi_phys)
 	
 	terminal_initialize();
 
-	/* Newline support is left as an exercise. */
-	terminal_writestring("Hello, kernel World!");
-	for (int i = 0; i < 1; i++)
-	{
-		terminal_writestring("Hello how are you");
-	}
+	terminal_writestring("hello from kernel land!");
 
-	if(result == 1) {
-		terminal_writestring("result is 1");
-	}
-	else {
-		terminal_writestring("result is 0");
-	}
+	
 
 
 	
 	printk("%s", "\n");
-	printk("%s","hello\n");
+	printk("%s","Hello From Kernel land!\n");
 }
