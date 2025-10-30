@@ -84,10 +84,12 @@ _start:
 	stack since (pushed 0 bytes so far), so the alignment has thus been
 	preserved and the call is well defined.
 	*/
-	//pushes magic address from boot loader
-	//pushes physical address information from bootloader
-	pushl %ebx        ; 2nd param: mbi_phys
-	pushl %eax        ; 1st param: magic (0x2BADB002)
+	/* 
+		pushes magic address from boot loader
+	 	pushes physical address information from bootloader
+	 */
+	pushl %ebx        
+	pushl %eax        
 	call kernel_main
 
 	/*

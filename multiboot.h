@@ -12,3 +12,13 @@ typedef struct multiboot_info {
     uint32_t mmap_length;
     uint32_t mmap_addr;
 } __attribute__((packed)) multiboot_info_t;
+
+typedef struct multiboot_mmap_entry {
+    uint32_t size;
+    uint64_t addr;
+    uint64_t len;
+    uint32_t type;
+} __attribute__((packed))  multiboot_mmap_entry_t;
+
+
+#define map_exists(x)((x) & (1u << 6))

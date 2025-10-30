@@ -149,12 +149,16 @@ void kernel_main(uint32_t magic, uint32_t mbi_phys)
 {
 
 	multiboot_info_t *mbi = (multiboot_info_t *)(uintptr_t)mbi_phys;
+	printk("%x", mbi->mmap_addr);
 
+
+
+	
 
 	/* Initialize terminal interface */
 
 
-	size_t result = serial_init();
+	size_t result = serial_init(); 
 
 	
 	terminal_initialize();
@@ -173,8 +177,8 @@ void kernel_main(uint32_t magic, uint32_t mbi_phys)
 		terminal_writestring("result is 0");
 	}
 
-	write_serial('h');
 
-	printk("%d", 123);
-	printk("%s","hello");
+	
+	printk("%s", "\n");
+	printk("%s","hello\n");
 }
