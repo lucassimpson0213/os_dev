@@ -4,6 +4,7 @@
 #include "kernel_h.h"
 #include "utils.h"
 #include "multiboot.h"
+#include "test.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -145,30 +146,45 @@ void terminal_writestring(const char *data)
 	terminal_write(data, strlen(data));
 }
 
+void traverse_multiboot_mmap(uint32_t mbi_phys) {
+	multiboot_info_t *mbi = (multiboot_info_t *)(uintptr_t)mbi_phys;
+	printk("%x\n", mbi->mmap_addr);
+
+	if (map_exists(mbi->flags))
+	{
+		multiboot_mmap_entry_t *mmap = (multiboot_mmap_entry_t *)(uintptr_t)mbi->mmap_addr;
+		uint8_t *p = (uint8_t *)(uintptr_t)(uint32_t)mbi->mmap_addr;
+
+		uint32_t mmap_length = mbi->mmap_length;
+		uint8_t *end = p + mmap_length;
+
+		while (p < end)
+		{
+			multiboot_mmap_entry_t *e = (multiboot_info_t *)p;
+			p += (e->size + sizeof(e->size));
+		}
+
+		// one iteration
+
+		// this is the address of the memory map
+		printk("mmap memory address %d\n", (uint32_t)mbi->mmap_addr);
+		printk("sizeof entry struct: %d\n", sizeof(multiboot_mmap_entry_t));
+		printk("entry->size field: %d\n", mmap->size);
+		printk("entry->addr: %x\n", (uint32_t)mmap->addr);
+		printk("entry->len: %x\n", (uint32_t)mmap->len);
+		printk("entry->type: %d\n", mmap->type);
+		printk("entry pointer: %p\n", mmap);
+	}
+}
+
 void kernel_main(uint32_t magic, uint32_t mbi_phys)
 {
+	size_t result = serial_init();
 
-	multiboot_info_t *mbi = (multiboot_info_t *)(uintptr_t)mbi_phys;
-	printk("%x", mbi->mmap_addr);
-
-
-
-	
-
-	/* Initialize terminal interface */
-
-
-	size_t result = serial_init(); 
-
-	
 	terminal_initialize();
 
 	terminal_writestring("hello from kernel land!");
 
-	
-
-
-	
 	printk("%s", "\n");
 	printk("%s","Hello From Kernel land!\n");
 }

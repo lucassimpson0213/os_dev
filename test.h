@@ -2,12 +2,13 @@
 
 #define TEST_H
 
-#define K_ASSERT(expr)                                              \
-    do {                                                            \
-        if (!(expr)) {                                              \
-            kassert_fail(#expr, __FILE__, __LINE__, __func__);      \
-        }                                                           \
-    } while (0)                                                     \
+#define KASSERT(cond, msg) \
+    do { \
+        if (!(cond)) { \
+            printk("ASSERT FAILED: %s at %s:%d\n", msg, __FILE__, __LINE__); \
+            for (;;) ; /* halt */ \
+        } \
+    } while (0)                                                   \
 
 void kassert_fail(const char * expr, const char * file, const char * func) {
      //TODO add print statements when printk is implemented
