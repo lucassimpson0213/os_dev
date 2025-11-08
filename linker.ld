@@ -19,6 +19,8 @@ SECTIONS
 	   chosen as a safer option than the traditional 1M. */
 	. = 2M;
 
+	PROVIDE(memory_start = .);
+
 	PROVIDE(kernel_start = .);
 
 	/* First put the multiboot header, as it is required to be put very early
@@ -49,7 +51,11 @@ SECTIONS
 		*(.bss)
 	}
 
-	PROVIDE(end = .);
+	_kernel_end = .;
+	
+	 _heap_start = .;
+  	. += 16M;      /* reserve 16 MiB for page allocator */
+  	_heap_end = .;
 
 	/* The compiler may produce other sections, by default it will put them in
 	   a segment with the same name. Simply add stuff here as needed. */

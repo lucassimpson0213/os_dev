@@ -34,6 +34,14 @@ int serial_init(void)
    return 0;
 }
 
+
+void print_hex64(uint64_t number) {
+   uint32_t hi = (uint32_t)(number >> 32);
+   uint32_t lo = (uint32_t)(number);
+
+   print_hex32_padded(hi);
+   print_hex32_padded(lo);
+}
 static int serial_tx_empty(void) { return inb(COM1 + 5) & 0x20; }
 void write_serial(char c)
 {
@@ -62,7 +70,7 @@ char read_serial(void)
 void consputc(char c) { write_serial(c); }
 
 /* ===== Tiny printers (32-bit) ===== */
-static void print_hex32(uint32_t v)
+ void print_hex32(uint32_t v)
 {
    static const char d[] = "0123456789abcdef";
    int lead = 1;
@@ -77,9 +85,9 @@ static void print_hex32(uint32_t v)
    if (lead)
       consputc('0');
 }
-static void print_hex32_padded(uint32_t v)
+ void print_hex32_padded(uint32_t v)
 {
-   static const char d[] = "0123456789abcdef";
+  const char d[] = "0123456789abcdef";
    for (int sh = 28; sh >= 0; sh -= 4)
       consputc(d[(v >> sh) & 0xF]);
 }
@@ -175,3 +183,4 @@ void printk(const char *format, ...)
    }
    va_end(ap);
 }
+

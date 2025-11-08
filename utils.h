@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdarg.h>
+#define MAX_REGIONS 100
 
 /* Serial */
 int serial_init(void);
@@ -12,5 +13,9 @@ char read_serial(void);
 /* Console */
 void consputc(char c);
 void printk(const char *format, ...);
+void print_hex64(uint64_t v);
+void print_hex32_padded(uint32_t v);
+
+
 
 #endif // UTILS_H

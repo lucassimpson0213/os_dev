@@ -21,4 +21,14 @@ typedef struct multiboot_mmap_entry {
 } __attribute__((packed))  multiboot_mmap_entry_t;
 
 
+typedef struct MemoryRegion{
+    uint64_t base;
+    uint64_t len;
+    uint32_t type;
+} MemoryRegion_t;
+
+extern void *_heap_start, *_heap_end;
+#define HEAP_START ((uintptr_t)&_heap_start)
+#define HEAP_END ((uintptr_t)&_heap_end)
+
 #define map_exists(x)((x) & (1u << 6))
