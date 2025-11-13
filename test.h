@@ -1,6 +1,7 @@
 #ifndef TEST_H
 
 #define TEST_H
+#include "utils.h"
 
 #define TYPECHECK(ptr, type)           \
     do                                 \

@@ -7,6 +7,8 @@
 #include "test.h"
 #include "typecheck.h"
 #include "str.h"
+#include "pmm.h"
+#include "test_pmm.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -208,6 +210,9 @@ void kernel_main(uint32_t magic, uint32_t mbi_phys)
 {
 	size_t result = serial_init();
 	struct MemoryRegion regions[MAX_REGIONS];
+
+	test_pmm();
+
 
 	print_hex64(regions->base);
 	printk("\n");

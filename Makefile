@@ -11,7 +11,7 @@ QEMU = qemu-system-i386
 QEMUFLAGS = -serial stdio
 
 # Source files
-OBJS = boot.o kernel.o utils.o str.o pmm.o
+OBJS = boot.o kernel.o utils.o str.o pmm.o testpmm.o
 
 # Default target
 all: kernel.elf
