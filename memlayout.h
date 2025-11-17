@@ -24,9 +24,19 @@
 extern char _kernel_start, _kernel_end;
 #define KERNEL_PHYS_START ((uintptr_t)&_kernel_start)
 #define KERNEL_PHYS_END   ((uintptr_t)&_kernel_end)
+#define PGSIZE 4096
+#define V2P(a) (a)
+#define P2V(a) (a)
+
 
 #define PGROUNDUP(sz)  (((sz)+PGSIZE-1) & ~(PGSIZE-1))
 #define PGROUNDDOWN(a) (((a)) & ~(PGSIZE-1))
+
+#define PTE_P 0x001
+#define PTE_W 0x002
+#define PTE_U 0x004
+
+#define PTE_ADDR(pte)((pte) & ~0xFFF)
 
 
 /*
