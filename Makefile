@@ -11,7 +11,7 @@ QEMU = qemu-system-i386
 QEMUFLAGS = -serial stdio
 
 # Source files
-OBJS = boot.o kernel.o utils.o str.o pmm.o testpmm.o
+OBJS = boot.o kernel.o utils.o str.o pmm.o testpmm.o paging.o vm.o
 
 # Default target
 all: kernel.elf
@@ -20,6 +20,8 @@ all: kernel.elf
 boot.o: boot.s
 	$(CC) -c $(CFLAGS) $< -o $@
 
+paging.o: paging.s 
+	$(CC) -c $(CFLAGS) $< -o $@
 # Compile C files
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@

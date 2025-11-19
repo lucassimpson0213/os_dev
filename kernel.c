@@ -9,6 +9,7 @@
 #include "str.h"
 #include "pmm.h"
 #include "test_pmm.h"
+#include "vm.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -226,6 +227,8 @@ void kernel_main(uint32_t magic, uint32_t mbi_phys)
 	terminal_initialize();
 
 	terminal_writestring("hello from kernel land!");
+
+	init_paging();
 
 	printk("%s", "\n");
 	printk("%s","Hello From Kernel land!\n");

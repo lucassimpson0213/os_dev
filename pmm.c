@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include "str.h"
 #include "test.h"
+#include "memlayout.h"
 
 
 #define NUM_BYTES 512
