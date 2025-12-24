@@ -1,0 +1,6 @@
+file kernel
+readelf -h kernel
+readelf -S kernel
+readelf -l kernel
+nm kernel
+objdump -d -Mintel kernel

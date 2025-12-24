@@ -67,10 +67,13 @@ void *alloc_page(size_t num_pages)
 
     char *address = (char *)PGROUNDUP(bookkeep_end);
     uint8_t *heap = (uint8_t *)HEAP_START;
+
+    
     // start at first page instead of page 0 because the first page is reserved for bookkeeping
 
     kassert((uintptr_t)address % 4096 == 0, "address is misaligned not a multiple of 4096");
 
+    
     size_t page = 1;
 
     // starting from first page in heap region
@@ -97,7 +100,7 @@ void *alloc_page(size_t num_pages)
 void free_page(void *address)
 {
 
-    if ((uintptr_t)address >= bookkeep_end && address < HEAP_END && (uintptr_t)address % 4096 == 0)
+    if ((uintptr_t)address >= bookkeep_end && (uintptr_t) address < HEAP_END && (uintptr_t)address % 4096 == 0)
     {
         size_t addressHolder = ((uintptr_t)address - (uintptr_t)HEAP_START) / PGSIZE;
         uint8_t *heap = (uint8_t *)HEAP_START;
