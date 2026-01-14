@@ -1,0 +1,230 @@
+[
+  {
+    "file": "boot.s",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "boot.s",
+      "-o",
+      "boot.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "boot.o"
+  },
+  {
+    "file": "kernel.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "kernel.c",
+      "-o",
+      "kernel.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "kernel.o"
+  },
+  {
+    "file": "utils.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "utils.c",
+      "-o",
+      "utils.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "utils.o"
+  },
+  {
+    "file": "str.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "str.c",
+      "-o",
+      "str.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "str.o"
+  },
+  {
+    "file": "pmm.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "pmm.c",
+      "-o",
+      "pmm.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "pmm.o"
+  },
+  {
+    "file": "testpmm.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "testpmm.c",
+      "-o",
+      "testpmm.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "testpmm.o"
+  },
+  {
+    "file": "paging.S",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "paging.S",
+      "-o",
+      "paging.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "paging.o"
+  },
+  {
+    "file": "vm.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "vm.c",
+      "-o",
+      "vm.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "vm.o"
+  },
+  {
+    "file": "setgdt.S",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "setgdt.S",
+      "-o",
+      "setgdt.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "setgdt.o"
+  },
+  {
+    "file": "gdt.c",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "gdt.c",
+      "-o",
+      "gdt.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "gdt.o"
+  },
+  {
+    "file": "practice.s",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "practice.s",
+      "-o",
+      "practice.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "practice.o"
+  },
+  {
+    "file": "reload.s",
+    "arguments": [
+      "i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-g",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-fno-builtin",
+      "-c",
+      "reload.s",
+      "-o",
+      "reload.o"
+    ],
+    "directory": "/Users/lucassimpson/c/os_dev",
+    "output": "reload.o"
+  }
+]

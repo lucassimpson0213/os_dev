@@ -17,6 +17,9 @@
 
 typedef unsigned int uint;
 
+void init_gdt();
+extern void gdt_flush(void);
+
 // One segment descriptor (8 bytes)
 // various segment selectors.
 #define SEG_KCODE 1  // kernel code
@@ -30,7 +33,7 @@ typedef unsigned int uint;
 
 
 // Segment Descriptor
-struct segdesc {
+struct __attribute__((packed)) segdesc {
   uint lim_15_0 : 16;  // Low bits of segment limit
   uint base_15_0 : 16; // Low bits of segment base address
   uint base_23_16 : 8; // Middle bits of segment base address
@@ -71,6 +74,9 @@ struct segdesc {
 struct GDT {
     struct segdesc segments[4];
 };
+
+
+
 
 #endif
 
