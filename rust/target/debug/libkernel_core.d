@@ -1,1 +1,1 @@
-/Users/lucassimpson/c/os_dev/rust/target/debug/libkernel_core.rlib: /Users/lucassimpson/c/os_dev/rust/crates/kernel_core/src/lib.rs
+/home/fedora/c/os_dev/rust/target/debug/libkernel_core.rlib: /home/fedora/c/os_dev/rust/crates/kernel_core/src/lib.rs

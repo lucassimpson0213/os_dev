@@ -137,10 +137,10 @@ $(RUST_LIB):
 boot.o: boot.s
 	$(CC) $(CFLAGS) -c $< -o $@
 
-paging.o: paging.S
+paging.o: paging.s
 	$(CC) $(CFLAGS) -c $< -o $@
 
-setgdt.o: setgdt.S
+setgdt.o: setgdt.s
 	$(CC) $(CFLAGS) -c $< -o $@
 
 practice.o: practice.s

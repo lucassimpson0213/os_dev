@@ -138,6 +138,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "tests"
+version = "0.1.0"
+dependencies = [
+ "kernel_core",
+]
+
+[[package]]
 name = "tools"
 version = "0.1.0"
 

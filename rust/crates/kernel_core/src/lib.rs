@@ -1,14 +1,23 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+#![no_std]
+
+use core::{ffi::c_void, panic::PanicInfo};
+
+#[unsafe(no_mangle)]
+pub extern "C" fn rust_hello() -> u32 {
+    0xCAFEBABE
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#[unsafe(no_mangle)]
+pub extern "C" fn rust_idt_entry() -> u32 {
+    return 0;
+}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[unsafe(no_mangle)]
+pub extern "C" fn rust_ping() -> u32 {
+    0xC0FFEEu32
+}
+
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> ! {
+    loop {}
 }

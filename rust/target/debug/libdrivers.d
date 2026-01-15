@@ -1,1 +1,1 @@
-/Users/lucassimpson/c/os_dev/rust/target/debug/libdrivers.rlib: /Users/lucassimpson/c/os_dev/rust/crates/drivers/src/lib.rs
+/home/fedora/c/os_dev/rust/target/debug/libdrivers.rlib: /home/fedora/c/os_dev/rust/crates/drivers/src/lib.rs
