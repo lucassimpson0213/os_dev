@@ -23,7 +23,7 @@ pub struct IdtEntry {
 }
 
 impl IdtEntry {
-    fn new(&self) -> Self {
+    pub fn new() -> Self {
         return Self {
             isr_low: 0,
             kernel_cs: 0,
@@ -35,7 +35,7 @@ impl IdtEntry {
         };
     }
 
-    fn isr(mut self, isr_routine: u32) -> Self {
+    pub fn isr(mut self, isr_routine: u32) -> Self {
         let low_bits = isr_routine & 0xFFFF;
         serial_println!("hello");
         self

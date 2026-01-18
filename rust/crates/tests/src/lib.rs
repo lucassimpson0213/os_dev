@@ -1,7 +1,9 @@
 use kernel::idt::makeidt::IdtEntry;
 
 pub fn test_idt_entry() -> u32 {
-    IdtEntry::new()
+    let mut idt_entry = IdtEntry::new();
+    idt_entry.isr(0);
+    return 0;
 }
 #[cfg(test)]
 mod tests {
@@ -9,7 +11,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let result = add(2, 2);
+        let result = test_idt_entry();
         assert_eq!(result, 4);
     }
 }
