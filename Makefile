@@ -180,6 +180,6 @@ gdb: kernel.elf
 # =========================
 clean:
 	rm -f *.o kernel.elf
-	cd $(RUST_DIR) && cargo clean
+	cd rust && cargo clean
 
 .PHONY: all run debug clean

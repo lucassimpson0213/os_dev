@@ -1,7 +1,8 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+use kernel::idt::makeidt::IdtEntry;
 
+pub fn test_idt_entry() -> u32 {
+    IdtEntry::new()
+}
 #[cfg(test)]
 mod tests {
     use super::*;
